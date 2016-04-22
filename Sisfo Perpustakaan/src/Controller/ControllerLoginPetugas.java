@@ -30,7 +30,7 @@ public class ControllerLoginPetugas implements ActionListener {
         this.model = model;
         view = new LoginPetugas();
         view.setVisible(true);
-
+        view.getBtnLogin().addActionListener(this);
     }
 
     @Override

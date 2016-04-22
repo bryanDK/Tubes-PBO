@@ -5,6 +5,10 @@
  */
 package view;
 
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
+import javax.swing.JTextField;
+
 /**
  *
  * @author rizky
@@ -17,6 +21,36 @@ public class TampilanDeleteBuku extends javax.swing.JFrame {
     public TampilanDeleteBuku() {
         initComponents();
     }
+    public void addListener(ActionListener e){
+        btnBack.addActionListener(e);
+        btnDelete.addActionListener(e);
+        
+    }
+
+    public JButton getBtnBack() {
+        return btnBack;
+    }
+
+    public void setBtnBack(JButton btnBack) {
+        this.btnBack = btnBack;
+    }
+
+    public JButton getBtnDelete() {
+        return btnDelete;
+    }
+
+    public void setBtnDelete(JButton btnDelete) {
+        this.btnDelete = btnDelete;
+    }
+
+    public String gettIdBuku() {
+        return tIdBuku.getText();
+    }
+
+    public void settIdAnggota(String idBuku) {
+        tIdBuku.setText(String.valueOf(idBuku));
+    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.

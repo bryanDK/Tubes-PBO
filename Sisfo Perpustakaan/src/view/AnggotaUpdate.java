@@ -5,6 +5,10 @@
  */
 package view;
 
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+
 /**
  *
  * @author rizky
@@ -16,6 +20,84 @@ public class AnggotaUpdate extends javax.swing.JFrame {
      */
     public AnggotaUpdate() {
         initComponents();
+    }
+    
+    public JComboBox<String> getCombobox() {
+        return Combobox;
+    }
+
+    public JButton getBtnBack() {
+        return btnBack;
+    }
+
+    public JButton getBtnUpdate() {
+        return btnUpdate;
+    }
+
+    public JButton getBtnLogout() {
+        return btnLogout;
+    }
+
+    public String gettJurusan() {
+        return tJurusan.getText();
+    }
+
+    public void settJurusan(String jurusan) {
+        tJurusan.setText(jurusan);
+    }
+
+    public String gettKelas() {
+        return tKelas.getText();
+    }
+
+    public void settKelas(String kelas) {
+        tKelas.setText(kelas);
+    }
+
+    public String gettNIM() {
+        return tNIM.getText();
+    }
+
+    public void settNIM(String nim) {
+        tNIM.setText(nim);
+    }
+
+    public String gettNama() {
+        return tNama.getText();
+    }
+
+    public void settNama(String nama) {
+        tNama.setText(nama);
+    }
+
+    public String gettPassword() {
+        return tPassword.getText();
+    }
+
+    public void settPassword(String password) {
+        tPassword.setText(password);
+    }
+
+    public int gettTahun() {
+        return Integer.parseInt(tTahun.getText());
+    }
+
+    public void settTahun(int tahun) {
+        tTahun.setText(String.valueOf(tahun));
+    }
+    
+    public void setJenisKelamin(String jenisKelamin){
+        Combobox.setSelectedItem(jenisKelamin);     
+    }
+    
+    public String getJenisKelamin(){
+        return Combobox.getSelectedItem().toString();
+    }
+    
+    public void addListener(ActionListener e){
+        btnBack.addActionListener(e);
+        btnUpdate.addActionListener(e);
+        btnLogout.addActionListener(e);
     }
 
     /**

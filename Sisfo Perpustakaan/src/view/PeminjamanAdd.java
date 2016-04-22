@@ -1,5 +1,8 @@
 package view;
 
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
+
 
 
 /*
@@ -20,6 +23,57 @@ public class PeminjamanAdd extends javax.swing.JFrame {
     public PeminjamanAdd() {
         initComponents();
     }
+    
+    public void addListener(ActionListener e){
+        btnBack.addActionListener(e);
+        btnInput.addActionListener(e);
+        btnLogout.addActionListener(e);
+    }
+  
+
+    public JButton getBtnBack() {
+        return btnBack;
+    }
+
+    public JButton getBtnInput() {
+        return btnInput;
+    }
+
+    public JButton getBtnLogout() {
+        return btnLogout;
+    }
+    
+    public String gettIdBuku() {
+        return tIdBuku.getText();
+    }
+
+    public void settIdBuku(String idBuku) {
+        tIdBuku.setText(idBuku);
+    }
+
+  public long gettIdPeminjaman() {
+        return Long.parseLong(tIdPeminjaman.getText());
+    }
+
+    public void settIdPeminjaman(long idPeminjaman) {
+        tIdPeminjaman.setText(String.valueOf(idPeminjaman));
+    }
+    public long gettIdPetugas() {
+        return Long.parseLong(tIdPetugas.getText());
+    }
+
+    public void settIdPetugas(long idPetugas) {
+        tIdPetugas.setText(String.valueOf(idPetugas));
+    }
+    public String gettNim() {
+        return tNIM.getText();
+    }
+
+    public void settNim(String nim) {
+        tNIM.setText(nim);
+    }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.

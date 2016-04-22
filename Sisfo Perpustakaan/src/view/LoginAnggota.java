@@ -148,10 +148,10 @@ public class LoginAnggota extends javax.swing.JFrame {
     }//GEN-LAST:event_btnLoginActionPerformed
 
     private void CRMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CRMouseClicked
-        CreateAccount ca = new CreateAccount();
-        ca.setVisible(true);
-        this.setVisible(false);
-        this.dispose();
+//        CreateAccount ca = new CreateAccount();
+//        ca.setVisible(true);
+//        this.setVisible(false);
+//        this.dispose();
     }//GEN-LAST:event_CRMouseClicked
 
     private void tPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tPasswordActionPerformed

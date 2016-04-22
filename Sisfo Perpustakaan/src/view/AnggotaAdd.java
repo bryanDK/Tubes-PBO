@@ -5,6 +5,11 @@
  */
 package view;
 
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import jdk.nashorn.internal.runtime.NumberToString;
+
 /**
  *
  * @author rizky
@@ -14,9 +19,90 @@ public class AnggotaAdd extends javax.swing.JFrame {
     /**
      * Creates new form Anggota
      */
+    
     public AnggotaAdd() {
         initComponents();
     }
+    
+    public void addListener(ActionListener e){
+        btnBack.addActionListener(e);
+        btnInput.addActionListener(e);
+        btnLogout.addActionListener(e);
+    }
+
+    public JComboBox<String> getCombobox() {
+        return Combobox;
+    }
+
+    public JButton getBtnBack() {
+        return btnBack;
+    }
+
+    public JButton getBtnInput() {
+        return btnInput;
+    }
+
+    public JButton getBtnLogout() {
+        return btnLogout;
+    }
+
+    public String gettJurusan() {
+        return tJurusan.getText();
+    }
+
+    public void settJurusan(String jurusan) {
+        tJurusan.setText(jurusan);
+    }
+
+    public String gettKelas() {
+        return tKelas.getText();
+    }
+
+    public void settKelas(String kelas) {
+        tKelas.setText(kelas);
+    }
+
+    public String gettNIM() {
+        return tNIM.getText();
+    }
+
+    public void settNIM(String nim) {
+        tNIM.setText(nim);
+    }
+
+    public String gettNama() {
+        return tNama.getText();
+    }
+
+    public void settNama(String nama) {
+        tNama.setText(nama);
+    }
+
+    public String gettPassword() {
+        return tPassword.getText();
+    }
+
+    public void settPassword(String password) {
+        tPassword.setText(password);
+    }
+
+    public int gettTahun() {
+        return Integer.parseInt(tTahun.getText());
+    }
+
+    public void settTahun(int tahun) {
+        tTahun.setText(String.valueOf(tahun));
+    }
+    
+    public void setJenisKelamin(String jenisKelamin){
+        Combobox.setSelectedItem(jenisKelamin);     
+    }
+    
+    public String getJenisKelamin(){
+        return Combobox.getSelectedItem().toString();
+    }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -177,38 +263,38 @@ public class AnggotaAdd extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(AnggotaAdd.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(AnggotaAdd.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(AnggotaAdd.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(AnggotaAdd.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new AnggotaAdd().setVisible(true);
-            }
-        });
-    }
+//    public static void main(String args[]) {
+//        /* Set the Nimbus look and feel */
+//        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+//        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+//         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+//         */
+//        try {
+//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+//                if ("Nimbus".equals(info.getName())) {
+//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+//                    break;
+//                }
+//            }
+//        } catch (ClassNotFoundException ex) {
+//            java.util.logging.Logger.getLogger(AnggotaAdd.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (InstantiationException ex) {
+//            java.util.logging.Logger.getLogger(AnggotaAdd.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (IllegalAccessException ex) {
+//            java.util.logging.Logger.getLogger(AnggotaAdd.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+//            java.util.logging.Logger.getLogger(AnggotaAdd.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        }
+//        //</editor-fold>
+//        //</editor-fold>
+//
+//        /* Create and display the form */
+//        java.awt.EventQueue.invokeLater(new Runnable() {
+//            public void run() {
+//                new AnggotaAdd().setVisible(true);
+//            }
+//        });
+//    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> Combobox;

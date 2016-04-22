@@ -23,7 +23,8 @@ public class ControllerDetailBuku implements ActionListener{
         this.model = model;
         view = new DetailBuku();
         view.setVisible(true);
-
+        view.getBtnBack().addActionListener(this);
+        view.getBtnLogout().addActionListener(this);
     }
 
     @Override

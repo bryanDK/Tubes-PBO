@@ -1,9 +1,12 @@
 package view;
 
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+import sisfo.perpustakaan.Anggota;
 
 
 
@@ -29,64 +32,51 @@ public class DaftarAnggota extends javax.swing.JFrame {
     public void addListener(ActionListener al) {
         btnAdd.addActionListener(al);
         btnBack.addActionListener(al);
+        btnDelete.addActionListener(al);
+        btnLogout.addActionListener(al);
+        btnUpdate.addActionListener(al);
        
-    }
-
-    public JButton getBtnInput() {
-        return btnAdd;
-    }
-
-    public void setBtnInput(JButton btnInput) {
-        this.btnAdd = btnInput;
     }
 
     public JButton getBtnLogout() {
         return btnBack;
     }
 
-    public void setBtnLogout(JButton btnLogout) {
-        this.btnBack = btnLogout;
+    public JButton getBtnAdd() {
+        return btnAdd;
     }
 
-    public JLabel getLbanggota() {
-        return lbanggota;
+    public JButton getBtnBack() {
+        return btnBack;
     }
 
-    public void setLbanggota(JLabel lbanggota) {
-        this.lbanggota = lbanggota;
+    public JButton getBtnDelete() {
+        return btnDelete;
     }
 
-    public JLabel getLbbuku() {
-        return lbbuku;
+    public JButton getBtnUpdate() {
+        return btnUpdate;
+    }
+    
+    public void viewAll(ArrayList<Anggota> listanggota){
+        String[] title = {"Nim","Nama","Jenis Kelamin","Jurusan","Kelas","Tahun Masuk"};
+        String[][] data = new String[listanggota.size()][6];
+        for(int i=0; i<listanggota.size(); i++){
+            Anggota a = listanggota.get(i);
+            data[i][0] = a.getNim();
+            data[i][1] = a.getNama();
+            data[i][2] = a.getJenisKelamin();
+            data[i][3] = a.getJurusan();
+            data[i][4] = a.getKelas();
+            data[i][5] = String.valueOf(a.getThnmasuk());
+            
+        }
+        tblAnggota.setModel(new DefaultTableModel(data,title));
     }
 
-    public void setLbbuku(JLabel lbbuku) {
-        this.lbbuku = lbbuku;
-    }
+    
 
-    public JLabel getLblaporan() {
-        return lblaporan;
-    }
-
-    public void setLblaporan(JLabel lblaporan) {
-        this.lblaporan = lblaporan;
-    }
-
-    public JLabel getLbpeminjam() {
-        return lbpeminjam;
-    }
-
-    public void setLbpeminjam(JLabel lbpeminjam) {
-        this.lbpeminjam = lbpeminjam;
-    }
-
-    public JTable getTableAnggota() {
-        return tableAnggota;
-    }
-
-    public void setTableAnggota(JTable tableAnggota) {
-        this.tableAnggota = tableAnggota;
-    }
+    
     
     
 
@@ -126,13 +116,13 @@ public class DaftarAnggota extends javax.swing.JFrame {
 
         tblAnggota.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Nim", "Nama", "Jenis Kelamin", "Jurusan", "Kelas", "Tahun Masuk"
             }
         ));
         jScrollPane1.setViewportView(tblAnggota);

@@ -5,6 +5,10 @@
  */
 package view;
 
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
+import javax.swing.JTextField;
+
 /**
  *
  * @author rizky
@@ -17,7 +21,39 @@ public class TampilanUpdatePeminjaman extends javax.swing.JFrame {
     public TampilanUpdatePeminjaman() {
         initComponents();
     }
+    
+    public void addListener(ActionListener e){
+        btnBack.addActionListener(e);
+        btnUpdate.addActionListener(e);
+        
+    }
 
+    public JButton getBtnBack() {
+        return btnBack;
+    }
+
+    public void setBtnBack(JButton btnBack) {
+        this.btnBack = btnBack;
+    }
+
+    public JButton getBtnUpdate() {
+        return btnUpdate;
+    }
+
+    public void setBtnUpdate(JButton btnUpdate) {
+        this.btnUpdate = btnUpdate;
+    }
+
+    public String gettIdPeminjaman() {
+        return tIdPeminjaman.getText();
+    }
+
+    public void settIdAnggota(String idPeminjaman) {
+        tIdPeminjaman.setText(String.valueOf(idPeminjaman));
+    }
+
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

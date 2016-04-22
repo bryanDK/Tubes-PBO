@@ -24,30 +24,14 @@ public class Home extends javax.swing.JFrame {
      */
     public Home() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
     
-    public void addListener(ActionListener al) {
-        btninformasi.addActionListener(al);
-        btnlogout.addActionListener(al);
-       
+    public void addListener(ActionListener e) {
+       btninformasi.addActionListener(e);
+       btnlogout.addActionListener(e);
     }
 
-    public JTextField getJumlah() {
-        return jumlah;
-    }
-
-    public void setJumlah(JTextField jumlah) {
-        this.jumlah = jumlah;
-    }
-
-    public JTable getTableBuku() {
-        return tableBuku;
-    }
-
-    public void setTableBuku(JTable tableBuku) {
-        this.tableBuku = tableBuku;
-    }
-    
     public JButton getBtninformasi() {
         return btninformasi;
     }
@@ -63,6 +47,17 @@ public class Home extends javax.swing.JFrame {
     public void setBtnlogout(JButton btnlogout) {
         this.btnlogout = btnlogout;
     }
+
+    public JTable getTableBuku() {
+        return tableBuku;
+    }
+
+    public void setTableBuku(JTable tableBuku) {
+        this.tableBuku = tableBuku;
+    }
+    
+
+  
 
     /**
      * This method is called from within the constructor to initialize the form.

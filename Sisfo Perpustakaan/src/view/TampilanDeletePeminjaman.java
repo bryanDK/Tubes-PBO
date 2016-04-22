@@ -5,6 +5,10 @@
  */
 package view;
 
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
+import javax.swing.JTextField;
+
 /**
  *
  * @author rizky
@@ -17,6 +21,38 @@ public class TampilanDeletePeminjaman extends javax.swing.JFrame {
     public TampilanDeletePeminjaman() {
         initComponents();
     }
+    
+    public void addListener(ActionListener e){
+        btnBack.addActionListener(e);
+        btnDelete.addActionListener(e);
+        
+    }
+
+    public JButton getBtnBack() {
+        return btnBack;
+    }
+
+    public void setBtnBack(JButton btnBack) {
+        this.btnBack = btnBack;
+    }
+
+    public JButton getBtnDelete() {
+        return btnDelete;
+    }
+
+    public void setBtnDelete(JButton btnDelete) {
+        this.btnDelete = btnDelete;
+    }
+
+    public String gettIdPeminjaman() {
+        return tIdPeminjaman.getText();
+    }
+
+    public void settIdAnggota(String idPeminjaman) {
+        tIdPeminjaman.setText(String.valueOf(idPeminjaman));
+    }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.

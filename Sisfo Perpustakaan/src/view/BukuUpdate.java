@@ -5,6 +5,10 @@
  */
 package view;
 
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+
 /**
  *
  * @author rizky
@@ -16,6 +20,69 @@ public class BukuUpdate extends javax.swing.JFrame {
      */
     public BukuUpdate() {
         initComponents();
+    }
+    
+    public void addListener(ActionListener e){
+        btnBack.addActionListener(e);
+        btnUpdate.addActionListener(e);
+        btnLogout.addActionListener(e);
+    }
+
+    public JComboBox<String> getCombobox() {
+        return Combobox;
+    }
+
+    public JButton getBtnBack() {
+        return btnBack;
+    }
+
+    public JButton getBtnUpdate() {
+        return btnUpdate;
+    }
+
+    public JButton getBtnLogout() {
+        return btnLogout;
+    }
+    
+    
+    public String gettIdBuku() {
+        return tIdBuku.getText();
+    }
+
+    public void settIdBuku(String idBuku) {
+        tIdBuku.setText(idBuku);
+    }
+
+    public String gettJudul() {
+        return tJudul.getText();
+    }
+
+    public void settJudul(String judul) {
+        tJudul.setText(judul);
+    }
+
+    public String gettPengarang() {
+        return tPengarang.getText();
+    }
+
+    public void settPengarang(String pengarang) {
+        tPengarang.setText(pengarang);
+    }
+
+    public String gettTipe() {
+        return tTipe.getText();
+    }
+
+    public void settTipe(String tipe) {
+        tTipe.setText(tipe);
+    }
+
+    public int gettTahun() {
+        return Integer.parseInt(tTahun.getText());
+    }
+
+    public void settTahun(int tahun) {
+        tTahun.setText(String.valueOf(tahun));
     }
 
     /**
