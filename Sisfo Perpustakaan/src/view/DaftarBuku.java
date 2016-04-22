@@ -1,9 +1,13 @@
 package view;
 
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+import sisfo.perpustakaan.Anggota;
+import sisfo.perpustakaan.Buku;
 
 
 
@@ -27,17 +31,52 @@ public class DaftarBuku extends javax.swing.JFrame {
     }
     
     public void addListener(ActionListener al) {
-        btnInput.addActionListener(al);
+        btnAdd.addActionListener(al);
         btnLogout.addActionListener(al);
+        btnDelete.addActionListener(al);
+        btnUpdate.addActionListener(al);
+        btnBack.addActionListener(al);
        
     }
-
-    public JButton getBtnInput() {
-        return btnInput;
+    
+    public void viewAll(ArrayList<Buku> listbuku){
+        String[] title = {"Id Buku","Judul","Pengarang","Tipe","Tahun Masuk","Status"};
+        String[][] data = new String[listbuku.size()][6];
+        for(int i=0; i<listbuku.size(); i++){
+            Buku a = listbuku.get(i);
+            data[i][0] = a.getIdBuku();
+            data[i][1] = a.getJudul();
+            data[i][2] = a.getPengarang();
+            data[i][3] = a.getTipe();
+            data[i][4] = String.valueOf(a.getThnMasukBuku());
+            data[i][5] = String.valueOf(a.getStatus());
+            
+        }
+        tblBuku.setModel(new DefaultTableModel(data,title));
     }
 
-    public void setBtnInput(JButton btnInput) {
-        this.btnInput = btnInput;
+    public JButton getBtnAdd() {
+        return btnAdd;
+    }
+
+    public void setBtnAdd(JButton btnAdd) {
+        this.btnAdd = btnAdd;
+    }
+
+    public JButton getBtnBack() {
+        return btnBack;
+    }
+
+    public void setBtnBack(JButton btnBack) {
+        this.btnBack = btnBack;
+    }
+
+    public JButton getBtnDelete() {
+        return btnDelete;
+    }
+
+    public void setBtnDelete(JButton btnDelete) {
+        this.btnDelete = btnDelete;
     }
 
     public JButton getBtnLogout() {
@@ -48,45 +87,29 @@ public class DaftarBuku extends javax.swing.JFrame {
         this.btnLogout = btnLogout;
     }
 
-    public JLabel getLbanggota() {
-        return lbanggota;
+    public JButton getBtnUpdate() {
+        return btnUpdate;
     }
 
-    public void setLbanggota(JLabel lbanggota) {
-        this.lbanggota = lbanggota;
+    public void setBtnUpdate(JButton btnUpdate) {
+        this.btnUpdate = btnUpdate;
     }
 
-    public JLabel getLbbuku() {
-        return lbbuku;
+    public JTable getTblBuku() {
+        return tblBuku;
     }
 
-    public void setLbbuku(JLabel lbbuku) {
-        this.lbbuku = lbbuku;
+    public void setTblBuku(JTable tblBuku) {
+        this.tblBuku = tblBuku;
     }
+    
+    
 
-    public JLabel getLblaporan() {
-        return lblaporan;
-    }
+    
 
-    public void setLblaporan(JLabel lblaporan) {
-        this.lblaporan = lblaporan;
-    }
+    
 
-    public JLabel getLbpeminjam() {
-        return lbpeminjam;
-    }
-
-    public void setLbpeminjam(JLabel lbpeminjam) {
-        this.lbpeminjam = lbpeminjam;
-    }
-
-    public JTable getTableBuku() {
-        return tableBuku;
-    }
-
-    public void setTableBuku(JTable tableBuku) {
-        this.tableBuku = tableBuku;
-    }
+    
     
     
 
@@ -119,13 +142,13 @@ public class DaftarBuku extends javax.swing.JFrame {
 
         tblBuku.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Id Buku", "Judul", "Pengarang", "Tipe", "Tahun Masuk", "Status"
             }
         ));
         jScrollPane1.setViewportView(tblBuku);

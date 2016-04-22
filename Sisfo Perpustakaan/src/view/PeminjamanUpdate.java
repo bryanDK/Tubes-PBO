@@ -1,5 +1,8 @@
 package view;
 
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
+
 
 
 /*
@@ -19,6 +22,54 @@ public class PeminjamanUpdate extends javax.swing.JFrame {
      */
     public PeminjamanUpdate() {
         initComponents();
+    }
+    
+    public void addListener(ActionListener e){
+        btnBack.addActionListener(e);
+        btnUpdate.addActionListener(e);
+        btnLogout.addActionListener(e);
+    }
+
+    public JButton getBtnBack() {
+        return btnBack;
+    }
+
+    public JButton getBtnUpdate() {
+        return btnUpdate;
+    }
+
+    public JButton getBtnLogout() {
+        return btnLogout;
+    }
+    
+    public String gettIdBuku() {
+        return tIdBuku.getText();
+    }
+
+    public void settIdBuku(String idBuku) {
+        tIdBuku.setText(idBuku);
+    }
+
+  public long gettIdPeminjaman() {
+        return Long.parseLong(tIdPeminjaman.getText());
+    }
+
+    public void settIdPeminjaman(long idPeminjaman) {
+        tIdPeminjaman.setText(String.valueOf(idPeminjaman));
+    }
+    public long gettIdPetugas() {
+        return Long.parseLong(tIdPetugas.getText());
+    }
+
+    public void settIdPetugas(long idPetugas) {
+        tIdPetugas.setText(String.valueOf(idPetugas));
+    }
+    public String gettNim() {
+        return tNIM.getText();
+    }
+
+    public void settNim(String nim) {
+        tNIM.setText(nim);
     }
 
     /**

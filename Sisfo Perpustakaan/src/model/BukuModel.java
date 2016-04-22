@@ -28,12 +28,19 @@ public class BukuModel {
     public Buku insertBuku() throws SQLException{
         Buku b =null;
         ResultSet rs = db.insertBuku(b);
+//        while (rs.next()) {
+//            b = new Buku(rs.getString("judul"), rs.getString("pengarang"), rs.getInt("tahun_masuk_buku"), rs.getString("tipe"), rs.getString("id_buku"), rs.getBoolean("status"));
+//        }
+        return b;
+    }
+    public Buku updateBuku() throws SQLException{
+        Buku b =null;
+        ResultSet rs = db.updateBuku(b);
         while (rs.next()) {
             b = new Buku(rs.getString("judul"), rs.getString("pengarang"), rs.getInt("tahun_masuk_buku"), rs.getString("tipe"), rs.getString("id_buku"), rs.getBoolean("status"));
         }
         return b;
     }
-    
     public Buku deleteBuku() throws SQLException{
         Buku b =null;
         ResultSet rs = db.deleteBuku(b.getIdBuku());

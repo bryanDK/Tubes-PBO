@@ -5,6 +5,10 @@
  */
 package view;
 
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
+import javax.swing.JTextField;
+
 /**
  *
  * @author rizky
@@ -17,6 +21,38 @@ public class TampilanUpdateAnggota extends javax.swing.JFrame {
     public TampilanUpdateAnggota() {
         initComponents();
     }
+    
+    public void addListener(ActionListener e){
+        btnBack.addActionListener(e);
+        btnUpdate.addActionListener(e);
+        
+    }
+
+    public JButton getBtnBack() {
+        return btnBack;
+    }
+
+    public void setBtnBack(JButton btnBack) {
+        this.btnBack = btnBack;
+    }
+
+    public JButton getBtnUpdate() {
+        return btnUpdate;
+    }
+
+    public void setBtnUpdate(JButton btnUpdate) {
+        this.btnUpdate = btnUpdate;
+    }
+
+    public String gettIdAnggota() {
+        return tIdAnggota.getText();
+    }
+
+    public void settIdAnggota(String idAnggota) {
+        tIdAnggota.setText(String.valueOf(idAnggota));
+    }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.

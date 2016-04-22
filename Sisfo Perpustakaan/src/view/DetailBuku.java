@@ -26,6 +26,7 @@ public class DetailBuku extends javax.swing.JFrame {
      */
     public DetailBuku() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
     
     public void addListener(ActionListener al) {

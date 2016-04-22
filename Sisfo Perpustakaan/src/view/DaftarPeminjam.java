@@ -6,12 +6,16 @@ import java.awt.event.ActionListener;
 import static java.awt.image.ImageObserver.WIDTH;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+import sisfo.perpustakaan.Anggota;
+import sisfo.perpustakaan.Peminjaman;
 
 
 
@@ -31,17 +35,36 @@ int j;
      * Creates new form DaftarPeminjam
      */
      public void addListener(ActionListener al) {
-        btnInput.addActionListener(al);
+        btnAdd.addActionListener(al);
         btnLogout.addActionListener(al);
+        btnDelete.addActionListener(al);
+        btnUpdate.addActionListener(al);
+        btnBack.addActionListener(al);
        
     }
 
-    public JButton getBtnInput() {
-        return btnInput;
+    public JButton getBtnAdd() {
+        return btnAdd;
     }
 
-    public void setBtnInput(JButton btnInput) {
-        this.btnInput = btnInput;
+    public void setBtnAdd(JButton btnAdd) {
+        this.btnAdd = btnAdd;
+    }
+
+    public JButton getBtnBack() {
+        return btnBack;
+    }
+
+    public void setBtnBack(JButton btnBack) {
+        this.btnBack = btnBack;
+    }
+
+    public JButton getBtnDelete() {
+        return btnDelete;
+    }
+
+    public void setBtnDelete(JButton btnDelete) {
+        this.btnDelete = btnDelete;
     }
 
     public JButton getBtnLogout() {
@@ -52,45 +75,41 @@ int j;
         this.btnLogout = btnLogout;
     }
 
-    public JLabel getLbanggota() {
-        return lbanggota;
+    public JButton getBtnUpdate() {
+        return btnUpdate;
     }
 
-    public void setLbanggota(JLabel lbanggota) {
-        this.lbanggota = lbanggota;
+    public void setBtnUpdate(JButton btnUpdate) {
+        this.btnUpdate = btnUpdate;
     }
 
-    public JLabel getLbbuku() {
-        return lbbuku;
+    public JTable getTblPeminjaman() {
+        return tblPeminjaman;
     }
 
-    public void setLbbuku(JLabel lbbuku) {
-        this.lbbuku = lbbuku;
+    public void setTblPeminjaman(JTable tblPeminjaman) {
+        this.tblPeminjaman = tblPeminjaman;
     }
 
-    public JLabel getLblaporan() {
-        return lblaporan;
+   public void viewAll(ArrayList<Peminjaman> listPeminjam){
+        String[] title = {"Id Peminjaman","Status Peminjaman","ID Petugas","NIM","ID Buku"};
+        String[][] data = new String[listPeminjam.size()][5];
+        for(int i=0; i<listPeminjam.size(); i++){
+            Peminjaman a = listPeminjam.get(i);
+            data[i][0] = String.valueOf(a.getIdPeminjaman());
+            data[i][1] = String.valueOf(a.getStatusPeminjaman());
+            data[i][2] = a.get();
+            data[i][3] = a.getJurusan();
+            data[i][4] = a.getKelas();
+            
+            
+        }
+        tblPeminjaman.setModel(new DefaultTableModel(data,title));
     }
 
-    public void setLblaporan(JLabel lblaporan) {
-        this.lblaporan = lblaporan;
-    }
+   
 
-    public JLabel getLbpeminjam() {
-        return lbpeminjam;
-    }
-
-    public void setLbpeminjam(JLabel lbpeminjam) {
-        this.lbpeminjam = lbpeminjam;
-    }
-
-    public JTable getTableBuku() {
-        return tableBuku;
-    }
-
-    public void setTableBuku(JTable tableBuku) {
-        this.tableBuku = tableBuku;
-    }
+    
      
      
 
@@ -147,13 +166,13 @@ int j;
 
         tblPeminjaman.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Id Peminjaman", "Status Peminjaman", "Id Petugas", "NIM", "Id Buku"
             }
         ));
         jScrollPane1.setViewportView(tblPeminjaman);

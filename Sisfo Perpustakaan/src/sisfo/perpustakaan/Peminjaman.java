@@ -6,6 +6,7 @@
 package sisfo.perpustakaan;
 
 import java.util.ArrayList;
+
 /**
  *
  * @author LENOVO
@@ -24,7 +25,15 @@ public class Peminjaman {
     public Peminjaman(long idPeminjaman) {
         this.idPeminjaman = idPeminjaman;
     }
+
+    public Peminjaman(long idPeminjaman,boolean statusPeminjaman,long id,String nim,String idBuku) {
+        this.idPeminjaman = idPeminjaman;
+        this.statusPeminjaman=statusPeminjaman;
+        
+        
+    }
     
+
     public void tambahBuku(Buku b) {
         daftarBuku.add(b);
         daftarBuku.size();
@@ -38,8 +47,8 @@ public class Peminjaman {
 //        }
     }
 
-   public void tambahAnggota(Anggota a){
-       daftarAnggota.add(a);
+    public void tambahAnggota(Anggota a) {
+        daftarAnggota.add(a);
         daftarAnggota.size();
 //        if (anggota.length > nAnggota) {
 //            anggota[nAnggota] = a;
@@ -48,9 +57,9 @@ public class Peminjaman {
 //            System.out.println("Jumlah Anggota Kelebihan");
 //        }
     }
-   
-   public void tambahPetugas(Petugas p){
-       
+
+    public void tambahPetugas(Petugas p) {
+
         daftarPetugas.add(p);
         daftarPetugas.size();
 //        if (petugas.length > nPetugas) {
@@ -60,9 +69,9 @@ public class Peminjaman {
 //            System.out.println("Jumlah Petugas Kelebihan");
 //        }
     }
-   
-   public void hapusAnggota(Anggota a){
-       ArrayList<Anggota> daftarAnggota = new ArrayList<>();
+
+    public void hapusAnggota(Anggota a) {
+        ArrayList<Anggota> daftarAnggota = new ArrayList<>();
         daftarAnggota.remove(a);
 //        if ((idxAnggota < anggota.length) && (idxAnggota >= 0)) {
 //            anggota[idxAnggota] = null;
@@ -73,8 +82,8 @@ public class Peminjaman {
 //            nAnggota--;
 //        }
     }
-    
-    public void hapusPetugas(Petugas p){
+
+    public void hapusPetugas(Petugas p) {
         ArrayList<Petugas> daftarPetugas = new ArrayList<>();
         daftarPetugas.remove(p);
 //        if ((idxPetugas < petugas.length) && (idxPetugas >= 0)) {
@@ -86,7 +95,7 @@ public class Peminjaman {
 //            nPetugas--;
 //        }
     }
-    
+
     public void hapusBuku(Buku b) {
         ArrayList<Buku> daftarBuku = new ArrayList<>();
         daftarBuku.remove(b);
@@ -101,7 +110,8 @@ public class Peminjaman {
 //            nBuku--;
 //        //}
 //    }
-}
+    }
+
     public Buku getBuku(int n) {
         if (n < daftarBuku.size()) {
             return daftarBuku.get(n);
@@ -114,11 +124,33 @@ public class Peminjaman {
         Buku b = null;
         for (int i = 0; i < daftarBuku.size(); i++) {
             if (daftarBuku.get(i).getIdBuku().equals(idBuku)) {
-                b =daftarBuku.get(i);
+                b = daftarBuku.get(i);
                 break;
             }
         }
         return b;
+    }
+
+    public Petugas getPetugas(long idp) {
+        Petugas p = null;
+        for (int i = 0; i < daftarPetugas.size(); i++) {
+            if (daftarPetugas.get(i).getId()==idp) {
+                p = daftarPetugas.get(i);
+                break;
+            }
+        }
+        return p;
+    }
+
+    public Anggota getAnggota(String ida) {
+        Anggota a = null;
+        for (int i = 0; i < daftarAnggota.size(); i++) {
+            if (daftarAnggota.get(i).getNim().equals(ida)) {
+                a = daftarAnggota.get(i);
+                break;
+            }
+        }
+        return a;
     }
 
     public long getIdPeminjaman() {
@@ -136,20 +168,20 @@ public class Peminjaman {
     public void setStatusPeminjaman(boolean statusPeminjaman) {
         this.statusPeminjaman = statusPeminjaman;
     }
-    
+
     public int getNBuku() {
         return this.nBuku;
     }
-    
+
     @Override
     public String toString() {
         String info = "";
-        info += "ID Peminjaman: "+ this.getIdPeminjaman() +"\n";
-        info += "Jumlah Buku yang Dipinjam: "+daftarBuku.size()+"\n";
-        for (int i = 0; i<daftarBuku.size();i++){
-            info += "Buku "+(i+1)+": " + this.getBuku(i);
+        info += "ID Peminjaman: " + this.getIdPeminjaman() + "\n";
+        info += "Jumlah Buku yang Dipinjam: " + daftarBuku.size() + "\n";
+        for (int i = 0; i < daftarBuku.size(); i++) {
+            info += "Buku " + (i + 1) + ": " + this.getBuku(i);
         }
-        info += "Status Peminjaman: "+ this.getStatusPeminjaman() +"\n";
+        info += "Status Peminjaman: " + this.getStatusPeminjaman() + "\n";
         return info; //To change body of generated methods, choose Tools | Templates.
     }
 }

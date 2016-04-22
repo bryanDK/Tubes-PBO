@@ -30,6 +30,7 @@ public class ControllerLoginAnggota implements ActionListener {
         this.model = model;
         view = new LoginAnggota();
         view.setVisible(true);
+        view.getjButton1().addActionListener(this);
 
     }
 

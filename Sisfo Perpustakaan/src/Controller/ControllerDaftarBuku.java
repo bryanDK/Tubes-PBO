@@ -7,6 +7,7 @@ package Controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import model.BukuModel;
 import sisfo.perpustakaan.Aplikasi;
 import view.DaftarBuku;
 
@@ -15,14 +16,19 @@ import view.DaftarBuku;
  * @author LENOVO
  */
 public class ControllerDaftarBuku implements ActionListener {
-    private Aplikasi model;
+    private Aplikasi apk;
+    private BukuModel model;
     private DaftarBuku view;
 
-    public ControllerDaftarBuku(Aplikasi model) {
+    public ControllerDaftarBuku(BukuModel model) {
         this.model = model;
         view = new DaftarBuku();
         view.setVisible(true);
-
+        view.getBtnBack().addActionListener(this);
+        view.getBtnAdd().addActionListener(this);
+        view.getBtnDelete().addActionListener(this);
+        view.getBtnUpdate().addActionListener(this);
+        view.getBtnLogout().addActionListener(this);
     }
 
     @Override

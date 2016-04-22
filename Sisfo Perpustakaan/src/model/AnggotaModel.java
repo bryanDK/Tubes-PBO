@@ -21,27 +21,53 @@ public class AnggotaModel {
         Anggota a = null;
         ResultSet rs = db.LoginAnggota(nim, pass);
         while (rs.next()) {
-                a = new Anggota(rs.getString(2), rs.getString(7), rs.getString(3), rs.getString(1), rs.getString(5), rs.getString(4), rs.getInt(6));
-            }
-        return a;
-    }
-    
-    public Anggota insertAnggota() throws SQLException{
-        Anggota a = null;
-        ResultSet rs = db.insertAnggota(a);
-        while (rs.next()) {
-                a = new Anggota(rs.getString(2), rs.getString(7), rs.getString(3), rs.getString(1), rs.getString(5), rs.getString(4), rs.getInt(6));
-            }
-        return a;
-    }
-    
-    public Anggota getAnggota() throws SQLException{
-        Anggota a = null;
-        ResultSet rs = db.getAnggota(a.getNim());
-        while (rs.next()) {
-                a = new Anggota(rs.getString(2), rs.getString(7), rs.getString(3), rs.getString(1), rs.getString(5), rs.getString(4), rs.getInt(6));
-            }
+            a = new Anggota(rs.getString(2), rs.getString(7), rs.getString(3), rs.getString(1), rs.getString(5), rs.getString(4), rs.getInt(6));
+        }
         return a;
     }
 
+    public Anggota insertAnggota() throws SQLException {
+        Anggota a = null;
+        ResultSet rs = db.insertAnggota(a);
+////        while (rs.next()) {
+////                a = new Anggota(rs.getString(2), rs.getString(7), rs.getString(3), rs.getString(1), rs.getString(5), rs.getString(4), rs.getInt(6));
+////            }
+        return a;
+    }
+
+    public Anggota updateAnggota() throws SQLException {
+        Anggota a = null;
+        ResultSet rs = db.updateAngota(a);
+        while (rs.next()) {
+            a = new Anggota(rs.getString(2), rs.getString(7), rs.getString(3), rs.getString(1), rs.getString(5), rs.getString(4), rs.getInt(6));
+        }
+        return a;
+    }
+
+    public Anggota deleteAnggota() throws SQLException {
+        Anggota a = null;
+        ResultSet rs = db.deleteAnggota(a.getNim());
+        while (rs.next()) {
+            a = new Anggota(rs.getString(2), rs.getString(7), rs.getString(3), rs.getString(1), rs.getString(5), rs.getString(4), rs.getInt(6));
+        }
+        return a;
+    }
+
+    public Anggota getAnggota() throws SQLException {
+        Anggota a = null;
+        ResultSet rs = db.getAnggota(a.getNim());
+        while (rs.next()) {
+            a = new Anggota(rs.getString(2), rs.getString(7), rs.getString(3), rs.getString(1), rs.getString(5), rs.getString(4), rs.getInt(6));
+        }
+        return a;
+    }
+
+    public Anggota displayAnggota() throws SQLException {
+        Anggota a = null;
+        ResultSet rs = db.displayAnggota();
+        while (rs.next()) {
+            a = new Anggota(rs.getString(2), rs.getString(7), rs.getString(3), rs.getString(1), rs.getString(5), rs.getString(4), rs.getInt(6));
+        }
+        return a;
+    }
 }
